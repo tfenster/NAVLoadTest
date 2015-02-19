@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LocalLoadTest.testsettings = LocalLoadTest.testsettings
 		Binaries\Microsoft.Dynamics.Framework.UI.Client.dll = Binaries\Microsoft.Dynamics.Framework.UI.Client.dll
 		Binaries\Microsoft.Dynamics.Framework.UI.Client.Net40.dll = Binaries\Microsoft.Dynamics.Framework.UI.Client.Net40.dll
+		Binaries\Microsoft.Json.dll = Binaries\Microsoft.Json.dll
+		Binaries\Microsoft.Server.Common.dll = Binaries\Microsoft.Server.Common.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Dynamics.Nav.TestUtilities", "Microsoft.Dynamics.Nav.TestUtilities\Microsoft.Dynamics.Nav.TestUtilities.csproj", "{2FC6BDA7-943C-4734-9D8E-427653C9A86D}"
