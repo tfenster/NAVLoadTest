@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<LoadTest Name="OrderProcessor" Description="" Owner="" storage="c:\users\david\source\repos\microsoft.dynamics.nav.loadtest\microsoft.dynamics.nav.loadtest\orderprocessor.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="fa74f8a5-071e-4010-8308-a196d65aaec2" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<LoadTest Name="OrderProcessor" Description="" Owner="" storage="c:\users\vmadmin\source\repos\navloadtest2013r2\microsoft.dynamics.nav.loadtest\orderprocessor.loadtest" Priority="2147483647" Enabled="true" CssProjectStructure="" CssIteration="" DeploymentItemsEditable="" WorkItemIds="" TraceLevel="None" CurrentRunConfig="Run Settings1" Id="fa74f8a5-071e-4010-8308-a196d65aaec2" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Scenarios>
     <Scenario Name="OrderProcessor" DelayBetweenIterations="1" PercentNewUsers="0" IPSwitching="false" TestMixType="UserPacing" ApplyDistributionToPacingDelay="true" MaxTestIterations="0" DisableDuringWarmup="false" DelayStartTime="0" AllowedAgents="">
       <ThinkProfile Value="0.2" Pattern="NormalDistribution" />
