@@ -239,10 +239,10 @@ namespace Microsoft.Dynamics.Nav.UserSession
             binding.ReaderQuotas.MaxStringContentLength = 10240000;
             binding.ReaderQuotas.MaxDepth = 64;
             binding.UseDefaultWebProxy = true;
-            binding.OpenTimeout = TimeSpan.FromMinutes(10);
-            binding.ReceiveTimeout = TimeSpan.FromMinutes(10);
-            binding.SendTimeout = TimeSpan.FromMinutes(10);
-            binding.CloseTimeout = TimeSpan.FromMinutes(10);
+            binding.OpenTimeout = TimeSpan.FromHours(10);
+            binding.ReceiveTimeout = TimeSpan.FromHours(10);
+            binding.SendTimeout = TimeSpan.FromHours(10);
+            binding.CloseTimeout = TimeSpan.FromHours(10);
 
             switch (authentication)
             {
@@ -255,7 +255,8 @@ namespace Microsoft.Dynamics.Nav.UserSession
                 case AuthenticationScheme.Windows:
                     binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Windows;
                     clientServiceClient.ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Impersonation;
-                    clientServiceClient.ChannelFactory.Credentials.Windows.ClientCredential = System.Net.CredentialCache.DefaultNetworkCredentials;
+                    clientServiceClient.ChannelFactory.Credentials.Windows.ClientCredential = new System.Net.NetworkCredential("tfenster", "Passw0rd*", "ns7ld");
+                    //clientServiceClient.ChannelFactory.Credentials.Windows.ClientCredential = System.Net.CredentialCache.DefaultNetworkCredentials;
                     break;
                 case AuthenticationScheme.UserNamePassword:
                     binding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;

@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AwaitClientContext.cs" />
     <Compile Include="ClientLogicalControlExtensions.cs" />
+    <Compile Include="ClientRepeaterControlExtension.cs" />
     <Compile Include="ClientSessionExtensions.cs" />
     <Compile Include="IDialogHandler.cs" />
     <Compile Include="InvalidCredentialsExceptions.cs" />
