@@ -10,7 +10,6 @@ namespace newsystemLoadTest
     public class ExplorerTest : NsysTest
     {
         private ClientLogicalForm explorerPage = null;
-        private Dictionary<string, ClientRepeaterColumnControl> explorerColumns = null;
 
         protected ClientLogicalForm openExplorerPage(UserContext userContext, int explorerPageId)
         {
@@ -44,10 +43,8 @@ namespace newsystemLoadTest
         {
             Guid guid = NsysUtils.startWithLogging(TestContext, "filtering for " + filterValue + " in field " + filterField);
 
-            var column = getExplorerColumns()[filterField];
-            ClientLogicalForm filters = column.Action("Filter...").InvokeCatchDialog();
-            TestScenario.SaveValueWithDelay(filters.Control(filterField), filterValue);
-            filters.Action("OK").Invoke();
+            ClientRepeaterColumnControl filterColumn = explorerPage.Repeater().Column(filterField);
+            TestScenario.ApplyColumnFilter(TestContext, userContext, filterColumn, filterValue);
             NsysUtils.log(TestContext, "found {0} hits when filtering for {1} in field {2}", getNoOfPosten(), filterValue, filterField);
 
             NsysUtils.stopWithLogging(guid, TestContext);
@@ -57,8 +54,8 @@ namespace newsystemLoadTest
         {
             Guid guid = NsysUtils.startWithLogging(TestContext, "sorting ascending by " + sortField);
 
-            var column = getExplorerColumns()[sortField];
-            column.Action("Ascending").Invoke();
+            var column = explorerPage.Repeater().Column(sortField);
+            column.Action("Aufsteigend").Invoke();
 
             NsysUtils.stopWithLogging(guid, TestContext);
         }
@@ -67,8 +64,8 @@ namespace newsystemLoadTest
         {
             Guid guid = NsysUtils.startWithLogging(TestContext, "sorting descending by " + sortField);
 
-            var column = getExplorerColumns()[sortField];
-            column.Action("Descending").Invoke();
+            var column = explorerPage.Repeater().Column(sortField);
+            column.Action("Absteigend").Invoke();
 
             NsysUtils.stopWithLogging(guid, TestContext);
         }
@@ -94,21 +91,5 @@ namespace newsystemLoadTest
             return explorerPage.Repeater().DefaultViewport.Count;
         }
 
-        private Dictionary<string, ClientRepeaterColumnControl> getExplorerColumns()
-        {
-            if (explorerColumns == null)
-            {
-                explorerColumns = new Dictionary<string, ClientRepeaterColumnControl>();
-
-                foreach (ClientRepeaterColumnControl column in explorerPage.Repeater().Columns)
-                {
-                    if (!explorerColumns.ContainsKey(column.Caption))
-                        explorerColumns.Add(column.Caption, column);
-                }
-            }
-
-            return explorerColumns;
-        }
-        
     }
 }

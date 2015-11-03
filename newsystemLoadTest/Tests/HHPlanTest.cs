@@ -32,7 +32,7 @@ namespace newsystemLoadTest
             definition.Control("Code").Activate();
 
             // Berichtsdefinition öffnen
-            var berichtsdefinitionPage = userContext.EnsurePage(BerichtsdefinitionPageId, berichtsdefinitionenPage.Action("View").InvokeCatchForm());
+            var berichtsdefinitionPage = userContext.EnsurePage(BerichtsdefinitionPageId, berichtsdefinitionenPage.Action("Ansicht").InvokeCatchForm());
 
             // Berechnen
             Guid guid = NsysUtils.startWithLogging(TestContext, "HHPlan berechnen für " + filter);
@@ -41,7 +41,7 @@ namespace newsystemLoadTest
                 TestContext.WriteLine("No warning about pre-existing data");
             else
             {
-                var progDialog = userContext.CatchDialog(yesNoDialog.Action("Yes").Invoke);
+                var progDialog = userContext.CatchDialog(yesNoDialog.Action("Ja").Invoke);
                 if (progDialog == null)
                     TestContext.WriteLine("no progress dialog");
             }

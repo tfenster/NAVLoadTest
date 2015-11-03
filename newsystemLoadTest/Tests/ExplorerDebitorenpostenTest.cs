@@ -29,22 +29,22 @@ namespace newsystemLoadTest
             search("Debitorennr.", "113203", userContext);
             logCurrentSorting();
 
-            string docNo = getPosten(0).Control("Document No.").StringValue;
+            string docNo = getPosten(0).Control("Belegnr.").StringValue;
             NsysUtils.log(TestContext, "Selected first Debitorenposten Key: {0} Value: {1}", "Document No.", docNo);
 
             // Filtern
-            filter("Amount", ">500", userContext);
+            filter("Betrag", ">500", userContext);
             logCurrentSorting();
 
             // Sortieren
-            sortAscending("Amount");
+            sortAscending("Betrag");
             logCurrentSorting();
-            docNo = getPosten(0).Control("Document No.").StringValue;
+            docNo = getPosten(0).Control("Belegnr.").StringValue;
             NsysUtils.log(TestContext, "Selected first Debitorenposten Key: {0} Value: {1}", "Document No.", docNo);
 
-            sortDescending("Amount");
+            sortDescending("Betrag");
             logCurrentSorting();
-            docNo = getPosten(0).Control("Document No.").StringValue;
+            docNo = getPosten(0).Control("Belegnr.").StringValue;
             NsysUtils.log(TestContext, "Selected first Debitorenposten Key: {0} Value: {1}", "Document No.", docNo);
 
             // Aufräumen
