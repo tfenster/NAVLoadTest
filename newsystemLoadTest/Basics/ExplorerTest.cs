@@ -39,6 +39,16 @@ namespace newsystemLoadTest
             NsysUtils.stopWithLogging(guid, TestContext);
         }
 
+        public void fillsearchfield(string searchField, string searchValue, UserContext userContext)
+        {
+            Guid guid = NsysUtils.startWithLogging(TestContext, "searching for " + searchValue + " in field " + searchField);
+
+            //userContext.EnsurePage(ExplorerPageId, explorerPage);
+            explorerPage.Control(searchField).Activate();
+            TestScenario.SaveValueWithDelay(explorerPage.Control(searchField), searchValue);
+            NsysUtils.stopWithLogging(guid, TestContext);
+        }
+
         public void filter(string filterField, string filterValue, UserContext userContext)
         {
             Guid guid = NsysUtils.startWithLogging(TestContext, "filtering for " + filterValue + " in field " + filterField);
@@ -78,6 +88,7 @@ namespace newsystemLoadTest
         public ClientRepeaterRowControl getPosten(int row)
         {
             return explorerPage.Repeater().DefaultViewport[row];
+            
         }
 
         public ClientRepeaterRowControl getRandomPosten()
@@ -91,5 +102,6 @@ namespace newsystemLoadTest
             return explorerPage.Repeater().DefaultViewport.Count;
         }
 
+        
     }
 }
